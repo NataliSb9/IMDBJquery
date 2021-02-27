@@ -15,9 +15,9 @@
   text-align: center;
   flex-wrap: wrap;
 }
-.row2 {
+.row3 {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   text-align: center;
   flex-wrap: wrap;
@@ -26,13 +26,13 @@
 .column1 {
   display: flex;
   flex-flow: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  justify-content: flex-start;
+  align-items:center;
+  text-align: justify;
   flex-wrap: wrap;
 }
 
 /*Imagenes*/
-.height {
-    height: 300px;
+.width {
+  height: 300px;
 }
