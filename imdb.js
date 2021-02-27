@@ -217,6 +217,7 @@ let movie2 = new Movie(
   "accion",
   "img./vengadores.jpg"
 );
+
 let imdb = new Imdb([movie1, movie2]);
 
 $(document).ready(function () {
@@ -229,6 +230,11 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $("#crearPeli").click(function () {
-    $("#verPelis").append(imdb.addMovie());
+    imdb.addMovie();
+   $("#nameMovie").val(" ");
+    $("#releaseYear").val(" "),
+    $("#nationality").val(" "),
+    $("#genre").val(" "),
+    $("#img").val(" ")
   });
 });
