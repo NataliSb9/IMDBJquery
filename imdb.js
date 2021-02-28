@@ -189,13 +189,11 @@ $(document).ready(function () {
 });
 
 
-
 //Formulario
 
 $(document).ready(function () {
   $("#crearPeli").click(function () {
     imdb.addMovie();
-
     $("#nameMovie").val(" ");
     $("#releaseYear").val(" ");
     $("#nationality").val(" ");
