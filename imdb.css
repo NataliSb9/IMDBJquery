@@ -1,12 +1,4 @@
 
-/*Imagenes*/
-.width {
-  height: 300px;
-}
-
-#formulario{
-  width: 700px;
-}
 .row3{
   display: flex;
   flex-direction: row;
@@ -20,5 +12,37 @@
   justify-content: center;
   align-content: center;
   align-items: center;
+  margin-top: 200px;
+}
+#movieGallery{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
   margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#formulario {
+  width: 700px;
+}
+img {
+  height: 20rem;
+}
+
+button{
+  margin-left: 30%;
+}
+
+#crearPeli{
+  margin-top: 5%;
+  margin-left: 40%;
+  margin-bottom: 10%;
+}
+
+#cardMovie{
+  margin-top: 20px;
+  margin-right: 10px;
+  height: 20rem;
 }

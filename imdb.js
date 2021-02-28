@@ -1,3 +1,4 @@
+
 class Professional {
   constructor(
     name,
@@ -43,109 +44,16 @@ class Professional {
     console.log(" - Profession: " + this.profession);
     console.log("****************************");
   }
-  getName() {
-    return this.name;
-  }
-
-  setName(name) {
-    this.name = name;
-  }
-
-  getAge() {
-    return this.age;
-  }
-
-  setAge(age) {
-    this.age = age;
-  }
-
-  getGenre() {
-    return this.genre;
-  }
-
-  setGenre(genre) {
-    this.genre = genre;
-  }
-
-  getWeight() {
-    return this.weight;
-  }
-
-  setWeight(weight) {
-    this.weight = weight;
-  }
-
-  getHeight() {
-    return this.height;
-  }
-
-  setHeight(height) {
-    this.height = height;
-  }
-
-  getHairColor() {
-    return this.hairColor;
-  }
-
-  setHairColor(hairColor) {
-    this.hairColor = hairColor;
-  }
-
-  getEyeColor() {
-    return this.eyeColor;
-  }
-
-  setEyeColor(eyeColor) {
-    this.eyeColor = eyeColor;
-  }
-
-  getRace() {
-    return this.race;
-  }
-
-  setRace(race) {
-    this.race = race;
-  }
-
-  getIsRetired() {
-    return this.isRetired;
-  }
-
-  setIsRetired(isRetired) {
-    this.isRetired = isRetired;
-  }
-
-  getNationality() {
-    return this.nationality;
-  }
-
-  setNationality(nationality) {
-    this.nationality = nationality;
-  }
-
-  getOscarsNumber() {
-    return this.oscarsNumber;
-  }
-
-  setOscarsNumber(oscarsNumber) {
-    this.oscarsNumber = oscarsNumber;
-  }
-
-  getProfession() {
-    return this.profession;
-  }
-
-  setProfession(profession) {
-    this.profession = profession;
-  }
+  
 }
 class Movie {
-  constructor(title, releaseYear, nationality, genre, photo) {
+  constructor(title, releaseYear, nationality, genre, photo, id) {
     this.title = title;
     this.releaseYear = releaseYear;
     this.nationality = nationality;
     this.genre = genre;
     this.photo = photo;
+    this.id = id;
   }
 
   mostrarDatosPelicula() {
@@ -158,20 +66,61 @@ class Movie {
     console.log("*******************************");
   }
   getInfoHtml() {
-    return `<div class="card" style="width: 17rem;">
-    <img  src=${this.photo} class="card-img-top width" alt="">
-    <div class="card-body">
-      <h5 class="card-title">${this.title}</h5>
-      <div>
-        <ul>
-          <li>${this.releaseYear}</li>
-          <li>${this.nationality}</li>
-          <li>${this.genre}</li>
-        </ul>
+    return `
+        <div id= "cardMovie" class="card" style="width: 15rem">
+          <img src="${this.photo}" class="card-img-top width" alt="" />
+          <div class="card-body">
+            <h6 class="card-title" style = "text-align: center;">${this.title}</h6>
+            <button
+            type="button"
+            class="btn btn-primary row3"
+            data-toggle="modal"
+            data-target="#modal${this.id}"
+            >
+            Info Peli
+            </button>
+          </div>
+        </div>
+  <div
+    class="modal fade"
+    id="modal${this.id}"
+    data-backdrop="static"
+    data-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+         <h5 class="modal-title">${this.title}</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Info de la pelicula:</p>
+          <ul>
+            <li>Año de estreno: ${this.releaseYear}</li>
+            <li>Nacionalidad: ${this.nationality}</li>
+            <li>Genero: ${this.genre}</li>
+          </ul>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              Cerrar
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>`;
+  </div> `
   }
+
 }
 
 class Imdb {
@@ -197,9 +146,14 @@ class Imdb {
       $("#releaseYear").val(),
       $("#nationality").val(),
       $("#genre").val(),
-      $("#img").val()
+      $("#img").val(),
+      this.calculateId()
     );
     this.peliculas.push(movie);
+  }
+
+  calculateId(){
+   return this.peliculas.length
   }
 }
 
@@ -208,33 +162,44 @@ let movie1 = new Movie(
   1994,
   "EEUU",
   "drama",
-  "img./cadenaPerpetua.jpg"
+  "img./cadenaPerpetua.jpg",
+  0
+ 
 );
 let movie2 = new Movie(
   "Vengadores: infinity war",
   2018,
   "EEUU",
   "accion",
-  "img./vengadores.jpg"
+  "img./vengadores.jpg",
+  1
 );
 
-let imdb = new Imdb([movie1, movie2]);
+let movie3 = new Movie("Raya y el ultimo dragon",2021,"EEUU", "Animacion","img./rayaDragon.jpg",2)
+let movie4 = new Movie("The gentlemen",2021,"UK", "Action","img./theGentlemen.jpg",3)
 
+
+let imdb = new Imdb([movie1, movie2,movie3,movie4]);
+
+//Incluir peliculas:
 $(document).ready(function () {
   $("#pelicula").click(function () {
     $("#verPelis").html(imdb.getInfoHtml());
   });
 });
 
+
+
 //Formulario
 
 $(document).ready(function () {
   $("#crearPeli").click(function () {
     imdb.addMovie();
-   $("#nameMovie").val(" ");
-    $("#releaseYear").val(" "),
-    $("#nationality").val(" "),
-    $("#genre").val(" "),
-    $("#img").val(" ")
+
+    $("#nameMovie").val(" ");
+    $("#releaseYear").val(" ");
+    $("#nationality").val(" ");
+    $("#genre").val(" ");
+    $("#img").val(" ");
   });
 });
