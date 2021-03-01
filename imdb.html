@@ -16,13 +16,13 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse" href ="imdb.html">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" id="pelicula" href="#">Peliculas</a>
+            <a class="nav-link" id="pelicula" href="imdbPelis.html">Peliculas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#formulario">Registra una peli</a>
+            <a class="nav-link" href="imdbForm.html">Registra una peli</a>
           </li>
         </ul>
       </div>
@@ -52,56 +52,7 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-
-    <div class = "row3" id="verPelis"></div>
-
-    <div class="container">
-      <p id="fillForm">Rellena este formulario para registrar una pelicula:</p>
-      <div class="abs-center">
-        <form id="formulario" class="column">
-          <div class="form-group">
-            <label for="nameMovie">Nombre de la pelicula:</label>
-            <input type="text" class="form-control" id="nameMovie"placeholder="Pelicula" value = ""> 
-          </div>
-          <div class="form-group">
-            <label for="releaseYear">Año del estreno</label>
-            <input type="number" class="form-control" id="releaseYear" placeholder="Fecha de estreno" value = "">
-          </div>
-          <div class="form-group">
-            <label for="releaseYear">Nacionalidad</label>
-            <input type="text" class="form-control" id="nationality" placeholder="Nacionalidad" value = "">
-          </div>
-          <div class="form-group">
-            <label for="genre">Genero de la pelicula</label>
-            <input type="text" class="form-control" id="genre" placeholder="Genero de la pelicula" value = "">
-          </div>
-          <div class="form-group">
-            <label for="img">Introduce la url de la imagen de la peli:</label>
-            <input type="url" class="form-control" id="img" value = "">
-          </div>
-          <button type="submit" class="btn btn-primary"id = "crearPeli" data-toggle="modal" data-target="#modalPeli">Crear peli</button>
-        </form>
-      </div>
-
-      <div class="modal fade" id="modalPeli" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              Tu pelicula se ha registrado correctamente.
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            </div>
-          </div>
-        </div>
-      </div> 
-      
-    </div>
+    
    </body>
  <script  rel=" " src="imdb.js"></script>
 </html>
